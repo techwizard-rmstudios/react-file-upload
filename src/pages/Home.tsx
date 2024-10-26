@@ -4,6 +4,7 @@ import Stage1 from "./Stage1";
 import Stage2 from "./Stage2";
 import Stage3 from "./Stage3";
 import { activeTab, inactiveTab } from "config/const";
+import MergeFiles from "./MergeFiles";
 
 const Home: React.FC = () => {
   const [tab, setTab] = useState(1);
@@ -31,10 +32,16 @@ const Home: React.FC = () => {
               Stage 3
             </button>
           </li>
+          <li className="me-2">
+            <button onClick={() => setTab(0)} className={tab === 0 ? activeTab.link : inactiveTab.link}>
+              Merge Files
+            </button>
+          </li>
         </ul>
         {tab === 1 && <Stage1 />}
         {tab === 2 && <Stage2 />}
         {tab === 3 && <Stage3 />}
+        {tab === 0 && <MergeFiles />}
       </div>
     </div>
   );

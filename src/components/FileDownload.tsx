@@ -4,15 +4,20 @@ import { baseUrl } from "config/const";
 import DownloadSVG from "elements/DownloadSVG";
 
 interface Props {
+  tab: string;
   name: string;
   title: string;
+  index: string;
 }
-const FileDownload: React.FC<Props> = ({ name, title }) => {
+const FileDownload: React.FC<Props> = ({ tab, name, title, index }) => {
   const downloadFile = () => {
-    fetch(`${baseUrl}/api/download/${name}`)
+    fetch(`${baseUrl}/api/download/${name}?tab=${tab}&index=${index}`)
       .then((response) => {
         if (response.status === 200) return response.blob();
-        else throw new Error("Failed to download file.");
+        if (response.status === 404) throw new Error("File not found.");
+        return response.json().then((errorData) => {
+          throw new Error(errorData?.message || response.statusText);
+        });
       })
       .then((blob) => {
         const url = window.URL.createObjectURL(new Blob([blob]));

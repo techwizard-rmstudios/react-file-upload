@@ -21,7 +21,7 @@ const Stage1: React.FC = () => {
         </div>
       </div>
       <div className="flex items-center justify-center gap-8 px-6 py-6 mx-auto">
-        <FileDownload name={`Total Taxes ${dateString()}.xlsx`} title="Download Total Taxes XLSX" />
+        <FileDownload tab="1" name={`Total Taxes ${dateString()}.xlsx`} title="Download Total Taxes XLSX" index="1" />
       </div>
     </div>
   );
