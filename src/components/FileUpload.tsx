@@ -11,8 +11,12 @@ interface Props {
 const FileUpload: React.FC<Props> = ({ name }) => {
   const [fileName, setFileName] = useState<string | null>(null);
 
+  const getFileExtension = (filename: string) => {
+    return filename.slice(filename.lastIndexOf(".")).toLowerCase();
+  };
+
   const uploadFile = (file: File) => {
-    if (name.split(".")[1].toLowerCase() !== file.name.split(".")[1].toLowerCase()) {
+    if (getFileExtension(name) !== getFileExtension(file.name)) {
       toast.error("Please upload correct file.", { position: "top-right" });
       return;
     }

@@ -19,13 +19,13 @@ const MergeFiles: React.FC = () => {
       <div className="flex flex-col items-center sm:items-start justify-center sm:flex-row sm:flex-wrap gap-8 px-6 py-6 mx-auto">
         {[...Array(index)].map((n, i) => (
           <div key={i} className="min-w-40">
-            <FileUpload key={i} name={`0_${i + 1}.xlsx`} />
-            <p className="font-bold text-center text-white p-2">File {i + 1} (XLSX)</p>
+            <FileUpload key={i} name={`0_${i + 1}.csv`} />
+            <p className="font-bold text-center text-white p-2">File {i + 1} (CSV)</p>
           </div>
         ))}
       </div>
       <div className="flex items-center justify-center gap-8 px-6 py-6 mx-auto">
-        <FileDownload tab="0" name="Merged_File.xlsx" title="Download Merged File XLSX" index="5" />
+        <FileDownload tab="0" name={`Merged File ${dateString()}.xlsx`} title="Download Merged File XLSX" index={index.toString()} />
       </div>
     </div>
   );
