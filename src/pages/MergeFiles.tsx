@@ -25,7 +25,7 @@ const MergeFiles: React.FC = () => {
         ))}
       </div>
       <div className="flex items-center justify-center gap-8 px-6 py-6 mx-auto">
-        <FileDownload tab="0" name="Merged_File.xlsx" title="Download Total Taxes XLSX" index="5" />
+        <FileDownload tab="0" name="Merged_File.xlsx" title="Download Merged File XLSX" index="5" />
       </div>
     </div>
   );
