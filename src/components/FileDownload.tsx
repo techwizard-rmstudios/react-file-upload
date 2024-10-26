@@ -5,8 +5,9 @@ import DownloadSVG from "elements/DownloadSVG";
 
 interface Props {
   name: string;
+  title: string;
 }
-const FileDownload: React.FC<Props> = ({ name }) => {
+const FileDownload: React.FC<Props> = ({ name, title }) => {
   const downloadFile = () => {
     fetch(`${baseUrl}/api/download/${name}`)
       .then((response) => {
@@ -26,9 +27,8 @@ const FileDownload: React.FC<Props> = ({ name }) => {
   };
 
   return (
-    <button type="button" onClick={() => downloadFile()} className="flex items-center gap-2 py-8 px-16 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-md text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-      Download Output XLSX
-      <DownloadSVG />
+    <button type="button" onClick={() => downloadFile()} className="flex items-center gap-2 py-8 px-8 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+      {title} <DownloadSVG />
     </button>
   );
 };
