@@ -1,4 +1,4 @@
-export const baseUrl = "http://localhost:3003";
+export const baseUrl = "http://64.23.140.111:3000";
 export const activeTab = {
   link: "inline-flex items-center justify-center p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500 group animate-jump",
   svg: "w-6 h-6 me-2 text-blue-600 dark:text-blue-500",
